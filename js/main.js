@@ -16,29 +16,37 @@ function fitTitle() {
   document.documentElement.style.setProperty('--title-height', `${heroTitle.offsetHeight + 16}px`);
 }
 
-/* Pour sequence: decoded frames, drawn only when the frame changes */
+/* Pour sequence: 144 frames, eased with the scroll and blended in between */
 
-const POUR_FRAMES = 72;
+const POUR_FRAMES = 144;
 const canvas = document.querySelector('.js-pour');
 const ctx = canvas.getContext('2d');
 const frames = [];
-let current = 0;
-let drawn = -1;
+let position = 0;
+let target = 0;
+let drawnPosition = -1;
+let heroVisible = true;
 
 function sizeCanvas() {
   const dpr = Math.min(window.devicePixelRatio, 1.5);
   canvas.width = Math.round(canvas.clientWidth * dpr);
   canvas.height = Math.round(canvas.clientHeight * dpr);
-  drawn = -1;
-  draw();
+  drawnPosition = -1;
 }
 
 function draw() {
-  let index = current;
-  while (index > 0 && !frames[index]) index--;
-  if (!frames[index] || index === drawn) return;
-  drawn = index;
-  ctx.drawImage(frames[index], 0, 0, canvas.width, canvas.height);
+  let i = Math.floor(position);
+  while (i > 0 && !frames[i]) i--;
+  if (!frames[i]) return;
+  const next = frames[Math.min(i + 1, POUR_FRAMES - 1)];
+  ctx.globalAlpha = 1;
+  ctx.drawImage(frames[i], 0, 0, canvas.width, canvas.height);
+  if (next && next !== frames[i]) {
+    ctx.globalAlpha = position - i;
+    ctx.drawImage(next, 0, 0, canvas.width, canvas.height);
+    ctx.globalAlpha = 1;
+  }
+  drawnPosition = position;
 }
 
 function loadFrames() {
@@ -48,7 +56,7 @@ function loadFrames() {
     img.src = `assets/seq/pour/${String(i).padStart(3, '0')}.webp`;
     img.decode().then(() => {
       frames[i] = img;
-      if (Math.abs(i - current) < 3) { drawn = -1; draw(); }
+      if (Math.abs(i - position) < 2) drawnPosition = -1;
     }, () => {});
   }
 }
@@ -57,10 +65,20 @@ ScrollTrigger.create({
   trigger: '.hero',
   start: 'top top',
   end: 'bottom bottom',
-  onUpdate: (self) => {
-    current = Math.round(self.progress * (POUR_FRAMES - 1));
-    draw();
-  },
+  onUpdate: (self) => { target = self.progress * (POUR_FRAMES - 1); },
+});
+
+ScrollTrigger.create({
+  trigger: '.hero',
+  start: 'top bottom',
+  end: 'bottom top',
+  onToggle: (self) => { heroVisible = self.isActive; },
+});
+
+gsap.ticker.add((time, deltaTime) => {
+  if (!heroVisible) return;
+  position += (target - position) * (reducedMotion ? 1 : 1 - Math.exp((-deltaTime / 1000) * 7));
+  if (Math.abs(position - drawnPosition) > 0.005) draw();
 });
 
 /* Header colour follows the section underneath */
