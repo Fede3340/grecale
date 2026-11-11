@@ -66,24 +66,30 @@ updateTotal();
 /* The bowl fills while the hero is pinned: one short video, scrubbed by the scroll */
 
 const pour = document.querySelector('.js-pour');
+const touch = window.matchMedia('(pointer: coarse)').matches;
 let pourTarget = 0;
 let pourTime = 0;
 
-pour.play().then(() => pour.pause(), () => {});
+if (touch) {
+  // on phones seeking a video every frame is heavy: the bowl fills on its own when it comes into view
+  ScrollTrigger.create({ trigger: pour, start: 'top 85%', once: true, onEnter: () => pour.play().catch(() => {}) });
+} else {
+  pour.play().then(() => pour.pause(), () => {});
 
-ScrollTrigger.create({
-  trigger: '.hero',
-  start: 'top top',
-  end: 'bottom bottom',
-  onUpdate: (self) => { pourTarget = self.progress; },
-});
+  ScrollTrigger.create({
+    trigger: '.hero',
+    start: 'top top',
+    end: 'bottom bottom',
+    onUpdate: (self) => { pourTarget = self.progress; },
+  });
 
-gsap.ticker.add((time, deltaTime) => {
-  if (!pour.duration) return;
-  const target = pourTarget * (pour.duration - 0.05);
-  pourTime += (target - pourTime) * (reducedMotion ? 1 : 1 - Math.exp((-deltaTime / 1000) * 8));
-  if (Math.abs(pour.currentTime - pourTime) > 0.03 && !pour.seeking) pour.currentTime = pourTime;
-});
+  gsap.ticker.add((time, deltaTime) => {
+    if (!pour.duration) return;
+    const target = pourTarget * (pour.duration - 0.05);
+    pourTime += (target - pourTime) * (reducedMotion ? 1 : 1 - Math.exp((-deltaTime / 1000) * 8));
+    if (Math.abs(pour.currentTime - pourTime) > 0.03 && !pour.seeking) pour.currentTime = pourTime;
+  });
+}
 
 /* Motion: only transforms and opacity, each runs once */
 
