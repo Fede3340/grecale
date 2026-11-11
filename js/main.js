@@ -34,31 +34,41 @@ function sizeCanvas() {
   drawnPosition = -1;
 }
 
+// blends the two nearest loaded frames around the scroll position
 function draw() {
-  let i = Math.floor(position);
-  while (i > 0 && !frames[i]) i--;
-  if (!frames[i]) return;
-  const next = frames[Math.min(i + 1, POUR_FRAMES - 1)];
+  let before = Math.floor(position);
+  let after = Math.min(before + 1, POUR_FRAMES - 1);
+  while (before > 0 && !frames[before]) before--;
+  while (after < POUR_FRAMES - 1 && !frames[after]) after++;
+  if (!frames[before]) return;
   ctx.globalAlpha = 1;
-  ctx.drawImage(frames[i], 0, 0, canvas.width, canvas.height);
-  if (next && next !== frames[i]) {
-    ctx.globalAlpha = position - i;
-    ctx.drawImage(next, 0, 0, canvas.width, canvas.height);
+  ctx.drawImage(frames[before], 0, 0, canvas.width, canvas.height);
+  if (frames[after] && after > before) {
+    ctx.globalAlpha = Math.min(1, Math.max(0, (position - before) / (after - before)));
+    ctx.drawImage(frames[after], 0, 0, canvas.width, canvas.height);
     ctx.globalAlpha = 1;
   }
   drawnPosition = position;
 }
 
+function loadOrder(count) {
+  const order = [];
+  for (const step of [16, 8, 4, 2, 1]) {
+    for (let i = 0; i < count; i += step) if (!order.includes(i)) order.push(i);
+  }
+  return order;
+}
+
 function loadFrames() {
-  for (let i = 0; i < POUR_FRAMES; i++) {
+  loadOrder(POUR_FRAMES).forEach((i) => {
     const img = new Image();
     img.decoding = 'async';
     img.src = `assets/seq/pour/${String(i).padStart(3, '0')}.webp`;
     img.decode().then(() => {
       frames[i] = img;
-      if (Math.abs(i - position) < 2) drawnPosition = -1;
+      drawnPosition = -1;
     }, () => {});
-  }
+  });
 }
 
 ScrollTrigger.create({
@@ -197,7 +207,7 @@ function initPreview() {
 
 const fontsReady = Promise.race([
   Promise.all([document.fonts.load('300 1em Melodrama'), document.fonts.load('400 1em Switzer')]),
-  new Promise((resolve) => setTimeout(resolve, 2500)),
+  new Promise((resolve) => setTimeout(resolve, 1500)),
 ]);
 
 updateTotal();
