@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Grecale | Olio extravergine di coratina</title>
+  <meta name="description" content="Grecale, olio extravergine di oliva da sola coratina, estratto a freddo in Puglia.">
+  <meta name="theme-color" content="#233018">
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=zodiak@300,400,500&display=swap">
+  <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="assets/img/grove-poster.webp">
+</head>
+<body>
+  <header class="header" data-theme="light">
+    <a class="header__logo" href="#top" aria-label="Grecale, torna all'inizio">Grecale</a>
+    <nav class="header__nav" aria-label="Sezioni">
+      <a href="#foglia">La foglia</a>
+      <a href="#olio">L’olio</a>
+      <a href="#tavola">A tavola</a>
+      <a class="header__bag" href="#olio">Borsa <span class="js-bag-count">0</span></a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="intro" id="top" data-theme="light">
+      <div class="intro__sticky">
+        <canvas class="intro__canvas" aria-hidden="true"></canvas>
+        <img class="intro__poster" src="assets/img/grove-poster.webp" alt="" aria-hidden="true">
+        <div class="intro__shade" aria-hidden="true"></div>
+        <p class="intro__kicker">Olio extravergine di oliva<br>Coratina, Puglia</p>
+        <h1 class="intro__title js-title">Grecale</h1>
+        <p class="intro__claim js-claim">Quando tira grecale, l’uliveto diventa d’argento.</p>
+        <span class="intro__hint">Scorri</span>
+      </div>
+    </section>
+
+    <section class="leaf" id="foglia" data-theme="light">
+      <div class="leaf__sticky">
+        <h2 class="leaf__title js-lines">Il rovescio della foglia</h2>
+        <div class="leaf__scene" aria-hidden="true">
+          <div class="leaf__card js-leaf">
+            <img class="leaf__face" src="assets/img/leaf-top.webp" alt="">
+            <img class="leaf__face leaf__face--back" src="assets/img/leaf-under.webp" alt="">
+          </div>
+        </div>
+        <p class="leaf__label"><span class="js-side">Pagina superiore</span></p>
+        <div class="leaf__text">
+          <p class="js-lines">Sopra, la foglia d’ulivo è verde-grigia. Sotto è quasi argentata: la coprono minuscoli peli a forma di scudo, che la proteggono dai raggi UV-B.</p>
+          <p class="js-lines">Quando il vento la gira, l’uliveto cambia colore.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="taste" data-theme="dark">
+      <h2 class="taste__title js-lines">Amaro,<br>poi pizzica.</h2>
+      <figure class="taste__arch">
+        <img class="js-parallax" src="assets/img/tasting.webp" width="1200" height="1500" alt="Olio extravergine in un bicchiere blu da assaggio, su fondo rosso." loading="lazy">
+      </figure>
+      <div class="taste__text">
+        <p class="js-lines">La coratina prende il nome da Corato, in Puglia. Dà un olio ricco di polifenoli, con amaro e piccante decisi.</p>
+        <p class="js-lines">Il pizzico in gola dell’olio appena franto si deve all’oleocantale.</p>
+        <p class="taste__note">Ai panel d’assaggio l’olio si versa in un bicchiere scuro: chi assaggia non deve vederne il colore.</p>
+      </div>
+    </section>
+
+    <section class="product" id="olio" data-theme="light">
+      <div class="product__stage" aria-live="polite">
+        <img class="product__item is-active" data-format="bottle" src="assets/img/bottle.webp" width="400" height="2020" alt="Bottiglia di Grecale da 50 cl in vetro scuro.">
+        <img class="product__item" data-format="tin" src="assets/img/tin.webp" width="900" height="1447" alt="Latta di Grecale da 3 litri." loading="lazy">
+        <span class="product__floor" aria-hidden="true"></span>
+      </div>
+      <div class="product__info">
+        <p class="product__meta">Raccolta 2026</p>
+        <h2 class="product__name">Grecale</h2>
+        <p class="product__lead">Olio extravergine di oliva da sola coratina. Estratto a freddo, cioè sotto i 27&nbsp;°C.</p>
+        <fieldset class="formats">
+          <legend class="formats__legend">Formato</legend>
+          <label class="formats__option">
+            <input type="radio" name="format" value="bottle" data-price="18" checked>
+            <span>Bottiglia, 50 cl</span><span>18 €</span>
+          </label>
+          <label class="formats__option">
+            <input type="radio" name="format" value="tin" data-price="74">
+            <span>Latta, 3 l</span><span>74 €</span>
+          </label>
+        </fieldset>
+        <div class="buy">
+          <div class="qty" role="group" aria-label="Quantità">
+            <button type="button" class="js-minus" aria-label="Diminuisci">−</button>
+            <output class="js-qty" aria-live="polite">1</output>
+            <button type="button" class="js-plus" aria-label="Aumenta">+</button>
+          </div>
+          <button type="button" class="buy__cta js-add"><span class="buy__label">Aggiungi alla borsa, <span class="js-total">18</span> €</span></button>
+        </div>
+        <p class="product__note">Conservalo al riparo da luce e calore: il vetro scuro e la latta lo proteggono dalla luce.</p>
+      </div>
+    </section>
+
+    <section class="table" id="tavola" data-theme="dark">
+      <h2 class="table__title js-lines">A crudo</h2>
+      <ul class="dishes">
+        <li class="dish" data-image="assets/img/frisa.webp">
+          <span class="dish__name">Frisa</span>
+          <p class="dish__text">Pane biscottato pugliese: si bagna in acqua e si condisce con pomodoro e olio extravergine.</p>
+          <img class="dish__image" src="assets/img/frisa.webp" width="1000" height="1250" alt="Una frisa con pomodorini, origano e olio." loading="lazy">
+        </li>
+        <li class="dish" data-image="assets/img/fave.webp">
+          <span class="dish__name">Fave e cicorie</span>
+          <p class="dish__text">Purea di fave secche con cicorie selvatiche lessate, e olio extravergine sopra.</p>
+          <img class="dish__image" src="assets/img/fave.webp" width="1000" height="1250" alt="Fave e cicorie in una ciotola di ceramica, con un filo d’olio." loading="lazy">
+        </li>
+        <li class="dish" data-image="assets/img/bread.webp">
+          <span class="dish__name">Pane e olio</span>
+          <p class="dish__text">Una fetta di pane di grano duro e un filo d’olio appena franto.</p>
+          <img class="dish__image" src="assets/img/bread.webp" width="1800" height="1195" alt="Olio versato su una fetta di pane." loading="lazy">
+        </li>
+      </ul>
+      <div class="dishes__preview" aria-hidden="true"><img alt=""></div>
+    </section>
+  </main>
+
+  <footer class="footer" data-theme="light">
+    <figure class="footer__image"><img src="assets/img/grove.webp" width="2400" height="1029" alt="Ulivi secolari su terra rossa piegati dal vento." loading="lazy"></figure>
+    <div class="footer__body">
+      <p class="footer__brand">Grecale</p>
+      <nav class="footer__nav" aria-label="Sezioni">
+        <a href="#foglia">La foglia</a>
+        <a href="#olio">L’olio</a>
+        <a href="#tavola">A tavola</a>
+      </nav>
+      <p class="footer__legal">Grecale è un marchio di fantasia, creato come progetto di esempio.</p>
+      <p class="footer__credit">Design e sviluppo <strong>Federico Mascia</strong></p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.4/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
