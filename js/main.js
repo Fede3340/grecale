@@ -1,6 +1,6 @@
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger);
 
 /* Header and phone menu */
 
@@ -103,21 +103,6 @@ function initMotion() {
     y: -40,
     ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
-  });
-
-  document.querySelectorAll('.js-lines').forEach((el) => {
-    SplitText.create(el, {
-      type: 'lines',
-      mask: 'lines',
-      autoSplit: true,
-      onSplit: (self) => gsap.from(self.lines, {
-        yPercent: 105,
-        duration: 0.9,
-        stagger: 0.06,
-        ease: 'expo.out',
-        scrollTrigger: { trigger: el, start: 'top 95%', once: true },
-      }),
-    });
   });
 
   gsap.utils.toArray('.js-reveal, .recipe, .shop__stage, .taste__figure').forEach((el) => {
