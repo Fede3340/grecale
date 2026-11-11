@@ -10,7 +10,7 @@
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/gambarino-400.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/gambetta-400.woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/grove.webp">
+  <link rel="preload" as="image" href="assets/img/pour-poster.webp">
   <link rel="stylesheet" href="css/style.css">
   <script>
     Promise.race([document.fonts.load('1em Gambarino'), new Promise((resolve) => setTimeout(resolve, 1500))])
@@ -47,21 +47,24 @@
 
   <main>
     <section class="hero" id="top">
-      <div class="hero__text">
-        <p class="kicker">Olio extravergine di oliva, Puglia</p>
-        <h1 class="hero__title">Il vento<br>da nord-est,<br><em>l’olio</em> nuovo.</h1>
-        <p class="hero__lead">Coratina in purezza, amara e piccante come deve essere, estratta a freddo sotto i 27&nbsp;°C.</p>
-        <a class="button" href="#acquista">Acquista <small>da 18 €</small></a>
+      <div class="hero__sticky">
+        <div class="hero__text">
+          <p class="kicker">Olio extravergine di oliva, Puglia</p>
+          <h1 class="hero__title">Il vento<br>da nord-est,<br><em>l’olio</em> nuovo.</h1>
+          <p class="hero__lead">Coratina in purezza, amara e piccante come deve essere, estratta a freddo sotto i 27&nbsp;°C.</p>
+          <a class="button" href="#acquista">Acquista <small>da 18 €</small></a>
+        </div>
+        <figure class="hero__figure">
+          <svg class="wind" viewBox="0 0 400 400" aria-hidden="true"><path d="M20 260 L260 20 M80 340 L340 80 M150 390 L390 150"/></svg>
+          <video class="lens js-pour" src="assets/video/pour.mp4" poster="assets/img/pour-poster.webp" muted playsinline preload="auto" aria-label="Un filo d’olio extravergine riempie una ciotola di ceramica mentre scorri."></video>
+          <figcaption class="hero__hint">Scorri: la ciotola si riempie</figcaption>
+        </figure>
       </div>
-      <figure class="hero__figure">
-        <svg class="wind" viewBox="0 0 400 400" aria-hidden="true"><path d="M20 260 L260 20 M80 340 L340 80 M150 390 L390 150"/></svg>
-        <img class="lens js-lens" src="assets/img/grove.webp" width="1200" height="1200" alt="Ulivi secolari su terra rossa, piegati dal vento.">
-      </figure>
     </section>
 
     <section class="taste" id="olio">
       <figure class="taste__figure">
-        <img class="lens js-lens" src="assets/img/pour.webp" width="1000" height="1000" alt="Un filo d’olio extravergine che cade in una ciotola di ceramica." loading="lazy" decoding="async">
+        <img class="lens" src="assets/img/tasting.webp" width="1000" height="1000" alt="Olio extravergine in un bicchiere blu da assaggio." loading="lazy" decoding="async">
       </figure>
       <div class="taste__text">
         <p class="kicker">L’olio</p>

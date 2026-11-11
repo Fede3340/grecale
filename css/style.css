@@ -3,12 +3,12 @@
 @font-face { font-family: "Gambetta"; src: url("../assets/fonts/gambetta-500.woff2") format("woff2"); font-weight: 500; font-display: swap; }
 @font-face { font-family: "Gambetta"; src: url("../assets/fonts/gambetta-600.woff2") format("woff2"); font-weight: 600; font-display: swap; }
 
-/* Colours of the harvest: leaf silver, ripe olive, green olive, new oil */
+/* Colours of the harvest: leaf silver, ripe olive, green olive, brass */
 :root {
   --sage: #e4e5dc;
   --aubergine: #34202d;
   --olive: #5d6120;
-  --gold: #c8b43a;
+  --brass: #c2a467;
 
   --display: "Gambarino", Georgia, serif;
   --text: "Gambetta", Georgia, serif;
@@ -52,7 +52,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .fonts-pending .logo__word { visibility: hidden; }
 
 .kicker { font-size: var(--fs-small); font-weight: 600; color: var(--olive); }
-.kicker--light { color: var(--gold); }
+.kicker--light { color: var(--brass); }
 .note { margin-top: 1.6em; font-size: var(--fs-small); max-width: 42ch; }
 
 .h2 {
@@ -85,8 +85,8 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   transition: background 0.3s;
 }
 .button:hover { background: #22141d; }
-.button small { font-size: 1em; font-weight: 500; color: var(--gold); }
-.button--dark { background: var(--aubergine); color: var(--gold); }
+.button small { font-size: 1em; font-weight: 500; color: var(--brass); }
+.button--dark { background: var(--aubergine); color: var(--brass); }
 
 /* header */
 
@@ -142,15 +142,19 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .menu__note { font-size: var(--fs-small); }
 .menu-open { overflow: hidden; }
 
-/* hero */
+/* hero: pinned while the bowl fills */
 
-.hero {
+.hero { position: relative; height: 230vh; }
+
+.hero__sticky {
+  position: sticky;
+  top: 60px;
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
   gap: 5vw;
-  min-height: calc(100svh - 80px);
-  padding: 2vh var(--pad) 8vh;
+  height: calc(100svh - 60px);
+  padding: 0 var(--pad);
   overflow: clip;
 }
 
@@ -166,6 +170,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .hero__lead { max-width: 32ch; margin-bottom: 2em; font-size: 1.1em; }
 
 .hero__figure { position: relative; justify-self: center; width: min(40vw, 600px); }
+.hero__hint { margin-top: 18px; font-size: var(--fs-small); text-align: center; color: var(--olive); }
 .wind {
   position: absolute;
   inset: -12%;
@@ -210,7 +215,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .leaf__face { grid-column: 2 / 12; display: grid; grid-template-columns: 160px 1fr; align-items: center; gap: 24px; }
 .leaf__face--under { grid-column: 1 / 11; }
 .leaf__face img { grid-column: 2; }
-.leaf__face figcaption { grid-column: 1; grid-row: 1; font-size: var(--fs-small); font-weight: 600; color: var(--gold); }
+.leaf__face figcaption { grid-column: 1; grid-row: 1; font-size: var(--fs-small); font-weight: 600; color: var(--brass); }
 
 /* shop */
 
@@ -279,7 +284,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   column-gap: 24px;
   align-items: end;
   padding: clamp(90px, 14vh, 160px) var(--pad);
-  background: var(--gold);
+  border-top: 1px solid var(--brass);
 }
 .where .h2 { grid-column: 1 / 7; }
 .where__text { grid-column: 8 / 13; display: grid; gap: 1em; justify-items: start; }
@@ -301,8 +306,8 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .footer__word { margin-right: -0.3em; font-family: var(--display); font-size: clamp(2.4rem, 5vw, 4.4rem); letter-spacing: 0.3em; line-height: 1; text-transform: uppercase; }
 .footer__links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 28px; margin-top: 12px; }
 
-.newsletter { display: grid; gap: 10px; width: min(100%, 420px); margin-top: 24px; color: var(--gold); }
-.newsletter__row { display: flex; border-bottom: 1px solid var(--gold); }
+.newsletter { display: grid; gap: 10px; width: min(100%, 420px); margin-top: 24px; color: var(--brass); }
+.newsletter__row { display: flex; border-bottom: 1px solid var(--brass); }
 .newsletter input { flex: 1; min-width: 0; padding: 12px 0; background: none; border: 0; color: var(--sage); font-size: var(--fs-body); text-align: left; }
 .newsletter input::placeholder { color: inherit; opacity: 0.6; }
 .newsletter input:focus { outline: none; }
@@ -330,8 +335,12 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   .logo__mark { width: 24px; height: 24px; }
   .header__cart { padding: 7px 12px; }
 
-  .hero { grid-template-columns: minmax(0, 1fr); gap: 0; min-height: 0; padding-top: 0; }
-  .hero__figure { width: min(78vw, 480px); order: -1; margin: 24px auto 36px; }
+  .hero { height: 200vh; }
+  .hero__sticky { grid-template-columns: minmax(0, 1fr); align-content: center; gap: 0; top: 56px; height: calc(100svh - 56px); }
+  .hero__figure { width: min(62vw, 400px); order: -1; margin: 0 auto 20px; }
+  .hero__title { font-size: clamp(2.4rem, 10.5vw, 3.4rem); margin: 0.2em 0 0.3em; }
+  .hero__lead { margin-bottom: 1.2em; }
+  .hero__hint { display: none; }
 
   .taste, .shop, .where { grid-template-columns: minmax(0, 1fr); row-gap: 32px; }
   .taste__figure { grid-column: 1; width: 80%; }
