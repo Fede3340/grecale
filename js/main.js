@@ -67,10 +67,12 @@ updateTotal();
 
 function initMotion() {
   gsap.from('.hero__text > *', { y: 30, autoAlpha: 0, duration: 1.4, stagger: 0.1, ease: 'expo.out' });
-  gsap.from('.plate--hero', { scale: 0.92, autoAlpha: 0, duration: 1.6, ease: 'expo.out', delay: 0.15 });
+  gsap.from('.hero__figure .lens', { scale: 0.9, autoAlpha: 0, duration: 1.6, ease: 'expo.out', delay: 0.15 });
+  gsap.from('.wind path', { xPercent: -8, yPercent: 8, autoAlpha: 0, duration: 2, stagger: 0.15, ease: 'expo.out', delay: 0.3 });
 
-  gsap.to('.plate--hero', {
-    yPercent: 10,
+  gsap.to('.wind', {
+    x: 40,
+    y: -40,
     ease: 'none',
     scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true },
   });
@@ -90,7 +92,7 @@ function initMotion() {
     });
   });
 
-  gsap.utils.toArray('.js-reveal, .recipe, .shop__stage').forEach((el) => {
+  gsap.utils.toArray('.js-reveal, .recipe, .shop__stage, .taste__figure').forEach((el) => {
     gsap.from(el, {
       y: 50,
       autoAlpha: 0,

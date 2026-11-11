@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Grecale | Olio extravergine di coratina</title>
   <meta name="description" content="Grecale, olio extravergine di oliva da sola coratina, estratto a freddo in Puglia.">
-  <meta name="theme-color" content="#f5f1e8">
+  <meta name="theme-color" content="#e4e5dc">
   <script>document.documentElement.className = 'js fonts-pending';</script>
   <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/gambarino-400.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/gambetta-400.woff2" crossorigin>
-  <link rel="preload" as="image" href="assets/img/pour-poster.webp">
+  <link rel="preload" as="image" href="assets/img/grove.webp">
   <link rel="stylesheet" href="css/style.css">
   <script>
     Promise.race([document.fonts.load('1em Gambarino'), new Promise((resolve) => setTimeout(resolve, 1500))])
@@ -27,7 +27,7 @@
       <a href="#dove">Dove trovarlo</a>
     </nav>
     <a class="logo" href="#top" aria-label="Grecale, torna all’inizio">
-      <img class="logo__mark" src="assets/img/logo.svg" width="678" height="771" alt="">
+      <img class="logo__mark" src="assets/img/logo.svg" width="120" height="120" alt="">
       <span class="logo__word">Grecale</span>
     </a>
     <div class="header__actions">
@@ -49,21 +49,19 @@
     <section class="hero" id="top">
       <div class="hero__text">
         <p class="kicker">Olio extravergine di oliva, Puglia</p>
-        <h1 class="hero__title">L’olio nuovo<br>di <em>coratina</em>.</h1>
-        <p class="hero__lead">Amaro e piccante come deve essere, estratto a freddo sotto i 27&nbsp;°C.</p>
+        <h1 class="hero__title">Il vento<br>da nord-est,<br><em>l’olio</em> nuovo.</h1>
+        <p class="hero__lead">Coratina in purezza, amara e piccante come deve essere, estratta a freddo sotto i 27&nbsp;°C.</p>
         <a class="button" href="#acquista">Acquista <small>da 18 €</small></a>
       </div>
-      <div class="plate plate--hero js-plate">
-        <img class="plate__photo" src="assets/img/pour-poster.webp" width="960" height="1280" alt="Un filo d’olio extravergine che cade in una ciotola di ceramica.">
-        <svg class="plate__rim" viewBox="0 0 600 600" aria-hidden="true"><use href="#rim"/></svg>
-      </div>
+      <figure class="hero__figure">
+        <svg class="wind" viewBox="0 0 400 400" aria-hidden="true"><path d="M20 260 L260 20 M80 340 L340 80 M150 390 L390 150"/></svg>
+        <img class="lens js-lens" src="assets/img/grove.webp" width="1200" height="1200" alt="Ulivi secolari su terra rossa, piegati dal vento.">
+      </figure>
     </section>
 
-    <svg class="band" viewBox="0 0 1440 46" preserveAspectRatio="none" aria-hidden="true"><use href="#band"/></svg>
-
     <section class="taste" id="olio">
-      <figure class="tile js-reveal">
-        <img src="assets/img/tasting.webp" width="1200" height="1500" alt="Olio extravergine in un bicchiere blu da assaggio." loading="lazy" decoding="async">
+      <figure class="taste__figure">
+        <img class="lens js-lens" src="assets/img/pour.webp" width="1000" height="1000" alt="Un filo d’olio extravergine che cade in una ciotola di ceramica." loading="lazy" decoding="async">
       </figure>
       <div class="taste__text">
         <p class="kicker">L’olio</p>
@@ -76,14 +74,15 @@
 
     <section class="leaf">
       <div class="leaf__text">
-        <h2 class="h2 js-lines">Il rovescio<br>della foglia</h2>
-        <p class="js-lines">Sopra, la foglia d’ulivo è verde-grigia. Sotto è quasi argentata: la coprono minuscoli peli a forma di scudo, che la proteggono dai raggi UV-B.</p>
+        <p class="kicker kicker--light">Il nome</p>
+        <h2 class="h2 js-lines">Due facce,<br>un vento.</h2>
+        <p class="js-lines">Il grecale soffia da nord-est. Sopra, la foglia d’ulivo è verde-grigia; sotto è quasi argentata, coperta di minuscoli peli a forma di scudo che la proteggono dai raggi UV-B. Il segno di Grecale è questa foglia: metà piena, metà disegnata, girata verso il vento.</p>
       </div>
-      <figure class="leaf__tile js-reveal">
+      <figure class="leaf__face js-reveal">
         <img src="assets/img/leaf-top.webp" width="1600" height="393" alt="La pagina superiore di una foglia d’ulivo." loading="lazy" decoding="async">
         <figcaption>Pagina superiore</figcaption>
       </figure>
-      <figure class="leaf__tile js-reveal">
+      <figure class="leaf__face leaf__face--under js-reveal">
         <img src="assets/img/leaf-under.webp" width="1600" height="393" alt="La pagina inferiore della stessa foglia, argentata." loading="lazy" decoding="async">
         <figcaption>Pagina inferiore</figcaption>
       </figure>
@@ -91,8 +90,8 @@
 
     <section class="shop" id="acquista">
       <div class="shop__stage">
-        <img class="shop__item is-active" data-format="bottle" src="assets/img/product-bottle.webp" width="1200" height="1500" alt="La bottiglia di Grecale da 50 cl su un piatto di maiolica." loading="lazy" decoding="async">
-        <img class="shop__item" data-format="tin" src="assets/img/product-tin.webp" width="1200" height="1500" alt="La latta di Grecale da 3 litri." loading="lazy" decoding="async">
+        <img class="shop__item is-active" data-format="bottle" src="assets/img/product-bottle.webp" width="1200" height="1500" alt="La bottiglia di Grecale da 50 cl su un blocco di pietra." loading="lazy" decoding="async">
+        <img class="shop__item" data-format="tin" src="assets/img/product-tin.webp" width="1200" height="1500" alt="La latta di Grecale da 3 litri su un blocco di pietra." loading="lazy" decoding="async">
       </div>
       <div class="shop__info">
         <p class="kicker">Raccolta 2026</p>
@@ -122,17 +121,17 @@
       </div>
       <ul class="recipes__list">
         <li class="recipe">
-          <div class="plate plate--small"><img class="plate__photo" src="assets/img/frisa.webp" width="1000" height="1250" alt="Una frisa con pomodorini, origano e olio." loading="lazy" decoding="async"><svg class="plate__rim" viewBox="0 0 600 600" aria-hidden="true"><use href="#rim"/></svg></div>
+          <img class="lens" src="assets/img/frisa.webp" width="1000" height="1250" alt="Una frisa con pomodorini, origano e olio." loading="lazy" decoding="async">
           <h3>Frisa</h3>
           <p>Pane biscottato pugliese: si bagna in acqua e si condisce con pomodoro e olio extravergine.</p>
         </li>
         <li class="recipe">
-          <div class="plate plate--small"><img class="plate__photo" src="assets/img/fave.webp" width="1000" height="1250" alt="Fave e cicorie con un filo d’olio." loading="lazy" decoding="async"><svg class="plate__rim" viewBox="0 0 600 600" aria-hidden="true"><use href="#rim"/></svg></div>
+          <img class="lens" src="assets/img/fave.webp" width="1000" height="1250" alt="Fave e cicorie con un filo d’olio." loading="lazy" decoding="async">
           <h3>Fave e cicorie</h3>
           <p>Purea di fave secche con cicorie selvatiche lessate, e olio extravergine sopra.</p>
         </li>
         <li class="recipe">
-          <div class="plate plate--small"><img class="plate__photo" src="assets/img/bread.webp" width="1800" height="1195" alt="Olio versato su una fetta di pane." loading="lazy" decoding="async"><svg class="plate__rim" viewBox="0 0 600 600" aria-hidden="true"><use href="#rim"/></svg></div>
+          <img class="lens" src="assets/img/bread.webp" width="1800" height="1195" alt="Olio versato su una fetta di pane." loading="lazy" decoding="async">
           <h3>Pane e olio</h3>
           <p>Una fetta di pane di grano duro e un filo d’olio appena franto.</p>
         </li>
@@ -144,35 +143,24 @@
       <div class="where__text">
         <p>Qui sul sito, con spedizione in tutta Italia.</p>
         <p>Nelle botteghe e nei ristoranti che lo scelgono: se hai un locale e vuoi assaggiarlo, scrivici.</p>
-        <a class="button button--light" href="#">Scrivici</a>
+        <a class="button button--dark" href="#">Scrivici</a>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="footer__brand">
-      <img src="assets/img/logo.svg" width="678" height="771" alt="" loading="lazy">
-      <p>Grecale</p>
-    </div>
-    <nav class="footer__col" aria-label="Shop">
-      <p class="footer__head">Shop</p>
-      <a href="#acquista">Bottiglia, 50 cl</a>
-      <a href="#acquista">Latta, 3 l</a>
-    </nav>
-    <nav class="footer__col" aria-label="Grecale">
-      <p class="footer__head">Grecale</p>
+    <img class="footer__mark" src="assets/img/logo-light.svg" width="120" height="120" alt="" loading="lazy">
+    <p class="footer__word">Grecale</p>
+    <nav class="footer__links" aria-label="Sezioni">
+      <a href="#acquista">Shop</a>
       <a href="#olio">L’olio</a>
       <a href="#ricette">Ricette</a>
       <a href="#dove">Dove trovarlo</a>
-    </nav>
-    <nav class="footer__col" aria-label="Assistenza">
-      <p class="footer__head">Assistenza</p>
       <a href="#">Spedizioni e resi</a>
-      <a href="#">Domande frequenti</a>
       <a href="#">Contatti</a>
     </nav>
     <form class="newsletter js-newsletter">
-      <label class="footer__head" for="newsletter-email">Newsletter</label>
+      <label for="newsletter-email">Una lettera a ogni raccolta</label>
       <div class="newsletter__row">
         <input id="newsletter-email" type="email" placeholder="La tua email" autocomplete="email" required>
         <button type="submit">Iscriviti</button>
@@ -185,21 +173,6 @@
       <p>Design e progettazione <strong>Federico Mascia</strong></p>
     </div>
   </footer>
-
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <g id="rim">
-        <circle cx="300" cy="300" r="290" fill="none" stroke="#2e6e4e" stroke-width="14"/>
-        <circle cx="300" cy="300" r="270" fill="none" stroke="#c99227" stroke-width="4"/>
-        <g fill="#23438e"><circle cx="580.0" cy="300.0" r="5"/><circle cx="577.6" cy="336.5" r="3.2"/><circle cx="570.5" cy="372.5" r="5"/><circle cx="558.7" cy="407.2" r="3.2"/><circle cx="542.5" cy="440.0" r="5"/><circle cx="522.1" cy="470.5" r="3.2"/><circle cx="498.0" cy="498.0" r="5"/><circle cx="470.5" cy="522.1" r="3.2"/><circle cx="440.0" cy="542.5" r="5"/><circle cx="407.2" cy="558.7" r="3.2"/><circle cx="372.5" cy="570.5" r="5"/><circle cx="336.5" cy="577.6" r="3.2"/><circle cx="300.0" cy="580.0" r="5"/><circle cx="263.5" cy="577.6" r="3.2"/><circle cx="227.5" cy="570.5" r="5"/><circle cx="192.8" cy="558.7" r="3.2"/><circle cx="160.0" cy="542.5" r="5"/><circle cx="129.5" cy="522.1" r="3.2"/><circle cx="102.0" cy="498.0" r="5"/><circle cx="77.9" cy="470.5" r="3.2"/><circle cx="57.5" cy="440.0" r="5"/><circle cx="41.3" cy="407.2" r="3.2"/><circle cx="29.5" cy="372.5" r="5"/><circle cx="22.4" cy="336.5" r="3.2"/><circle cx="20.0" cy="300.0" r="5"/><circle cx="22.4" cy="263.5" r="3.2"/><circle cx="29.5" cy="227.5" r="5"/><circle cx="41.3" cy="192.8" r="3.2"/><circle cx="57.5" cy="160.0" r="5"/><circle cx="77.9" cy="129.5" r="3.2"/><circle cx="102.0" cy="102.0" r="5"/><circle cx="129.5" cy="77.9" r="3.2"/><circle cx="160.0" cy="57.5" r="5"/><circle cx="192.8" cy="41.3" r="3.2"/><circle cx="227.5" cy="29.5" r="5"/><circle cx="263.5" cy="22.4" r="3.2"/><circle cx="300.0" cy="20.0" r="5"/><circle cx="336.5" cy="22.4" r="3.2"/><circle cx="372.5" cy="29.5" r="5"/><circle cx="407.2" cy="41.3" r="3.2"/><circle cx="440.0" cy="57.5" r="5"/><circle cx="470.5" cy="77.9" r="3.2"/><circle cx="498.0" cy="102.0" r="5"/><circle cx="522.1" cy="129.5" r="3.2"/><circle cx="542.5" cy="160.0" r="5"/><circle cx="558.7" cy="192.8" r="3.2"/><circle cx="570.5" cy="227.5" r="5"/><circle cx="577.6" cy="263.5" r="3.2"/></g>
-      </g>
-      <g id="band">
-        <rect width="1440" height="46" fill="#2e6e4e"/>
-        <path d="M0,23.0 L6,24.7 L12,26.4 L18,28.0 L24,29.5 L30,30.8 L36,31.9 L42,32.8 L48,33.5 L54,33.9 L60,34.0 L66,33.8 L72,33.4 L78,32.7 L84,31.8 L90,30.7 L96,29.3 L102,27.9 L108,26.2 L114,24.6 L120,22.8 L126,21.1 L132,19.4 L138,17.8 L144,16.4 L150,15.1 L156,14.0 L162,13.1 L168,12.5 L174,12.1 L180,12.0 L186,12.2 L192,12.6 L198,13.3 L204,14.3 L210,15.4 L216,16.8 L222,18.3 L228,19.9 L234,21.6 L240,23.4 L246,25.1 L252,26.8 L258,28.3 L264,29.8 L270,31.1 L276,32.1 L282,33.0 L288,33.6 L294,33.9 L300,34.0 L306,33.8 L312,33.3 L318,32.6 L324,31.6 L330,30.4 L336,29.1 L342,27.5 L348,25.9 L354,24.2 L360,22.5 L366,20.7 L372,19.1 L378,17.5 L384,16.1 L390,14.8 L396,13.8 L402,12.9 L408,12.4 L414,12.1 L420,12.0 L426,12.3 L432,12.8 L438,13.5 L444,14.5 L450,15.7 L456,17.1 L462,18.6 L468,20.3 L474,22.0 L480,23.7 L486,25.4 L492,27.1 L498,28.6 L504,30.1 L510,31.3 L516,32.3 L522,33.1 L528,33.7 L534,34.0 L540,34.0 L546,33.7 L552,33.2 L558,32.4 L564,31.4 L570,30.2 L576,28.8 L582,27.2 L588,25.6 L594,23.8 L600,22.1 L606,20.4 L612,18.7 L618,17.2 L624,15.8 L630,14.6 L636,13.6 L642,12.8 L648,12.3 L654,12.0 L660,12.0 L666,12.3 L672,12.9 L678,13.7 L684,14.7 L690,16.0 L696,17.4 L702,19.0 L708,20.6 L714,22.3 L720,24.1 L726,25.8 L732,27.4 L738,28.9 L744,30.3 L750,31.5 L756,32.5 L762,33.3 L768,33.8 L774,34.0 L780,33.9 L786,33.6 L792,33.0 L798,32.2 L804,31.1 L810,29.9 L816,28.4 L822,26.9 L828,25.2 L834,23.5 L840,21.7 L846,20.0 L852,18.4 L858,16.9 L864,15.5 L870,14.4 L876,13.4 L882,12.7 L888,12.2 L894,12.0 L900,12.1 L906,12.4 L912,13.0 L918,13.9 L924,15.0 L930,16.3 L936,17.7 L942,19.3 L948,21.0 L954,22.7 L960,24.4 L966,26.1 L972,27.7 L978,29.2 L984,30.6 L990,31.8 L996,32.7 L1002,33.4 L1008,33.8 L1014,34.0 L1020,33.9 L1026,33.5 L1032,32.9 L1038,32.0 L1044,30.9 L1050,29.6 L1056,28.1 L1062,26.5 L1068,24.9 L1074,23.1 L1080,21.4 L1086,19.7 L1092,18.1 L1098,16.6 L1104,15.3 L1110,14.1 L1116,13.2 L1122,12.6 L1128,12.1 L1134,12.0 L1140,12.1 L1146,12.5 L1152,13.2 L1158,14.1 L1164,15.2 L1170,16.6 L1176,18.0 L1182,19.6 L1188,21.3 L1194,23.1 L1200,24.8 L1206,26.5 L1212,28.1 L1218,29.5 L1224,30.8 L1230,32.0 L1236,32.9 L1242,33.5 L1248,33.9 L1254,34.0 L1260,33.8 L1266,33.4 L1272,32.7 L1278,31.8 L1284,30.6 L1290,29.3 L1296,27.8 L1302,26.2 L1308,24.5 L1314,22.8 L1320,21.0 L1326,19.4 L1332,17.8 L1338,16.3 L1344,15.0 L1350,13.9 L1356,13.1 L1362,12.4 L1368,12.1 L1374,12.0 L1380,12.2 L1386,12.6 L1392,13.4 L1398,14.3 L1404,15.5 L1410,16.8 L1416,18.4 L1422,20.0 L1428,21.7 L1434,23.4 L1440,25.1" fill="none" stroke="#f5f1e8" stroke-width="3"/>
-        <g fill="#c99227"><circle cx="30" cy="15.2" r="3.4"/><circle cx="90" cy="15.3" r="3.4"/><circle cx="150" cy="30.9" r="3.4"/><circle cx="210" cy="30.6" r="3.4"/><circle cx="270" cy="14.9" r="3.4"/><circle cx="330" cy="15.6" r="3.4"/><circle cx="390" cy="31.2" r="3.4"/><circle cx="450" cy="30.3" r="3.4"/><circle cx="510" cy="14.7" r="3.4"/><circle cx="570" cy="15.8" r="3.4"/><circle cx="630" cy="31.4" r="3.4"/><circle cx="690" cy="30.0" r="3.4"/><circle cx="750" cy="14.5" r="3.4"/><circle cx="810" cy="16.1" r="3.4"/><circle cx="870" cy="31.6" r="3.4"/><circle cx="930" cy="29.7" r="3.4"/><circle cx="990" cy="14.2" r="3.4"/><circle cx="1050" cy="16.4" r="3.4"/><circle cx="1110" cy="31.9" r="3.4"/><circle cx="1170" cy="29.4" r="3.4"/><circle cx="1230" cy="14.0" r="3.4"/><circle cx="1290" cy="16.7" r="3.4"/><circle cx="1350" cy="32.1" r="3.4"/><circle cx="1410" cy="29.2" r="3.4"/></g>
-      </g>
-    </defs>
-  </svg>
 
   <script src="js/vendor/gsap.min.js" defer></script>
   <script src="js/vendor/ScrollTrigger.min.js" defer></script>
