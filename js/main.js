@@ -3,19 +3,6 @@ const canHover = window.matchMedia('(hover: hover)').matches;
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-/* Hero title fills the width */
-
-const heroTitle = document.querySelector('.js-hero-title');
-
-function fitTitle() {
-  const range = document.createRange();
-  range.selectNodeContents(heroTitle);
-  heroTitle.style.fontSize = '100px';
-  const width = heroTitle.clientWidth;
-  heroTitle.style.fontSize = `${(100 * width) / range.getBoundingClientRect().width}px`;
-  document.documentElement.style.setProperty('--title-height', `${heroTitle.offsetHeight + 16}px`);
-}
-
 /* Pour sequence: 144 frames, eased with the scroll and blended in between */
 
 const POUR_FRAMES = 144;
@@ -213,10 +200,8 @@ const fontsReady = Promise.race([
 updateTotal();
 sizeCanvas();
 loadFrames();
-window.addEventListener('resize', () => { fitTitle(); sizeCanvas(); });
+window.addEventListener('resize', sizeCanvas);
 fontsReady.then(() => {
-  fitTitle();
-  document.documentElement.classList.remove('fonts-pending');
   if (!reducedMotion) initMotion();
   ScrollTrigger.refresh();
 });

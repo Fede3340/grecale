@@ -111,6 +111,8 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   height: 100svh;
   overflow: hidden;
   background: var(--earth);
+  container-type: inline-size;
+  --title-size: calc((100cqw - 2 * var(--pad)) / 3.7);
 }
 
 .hero__media {
@@ -154,6 +156,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   left: var(--pad);
   right: var(--pad);
   font-family: var(--serif);
+  font-size: var(--title-size);
   font-weight: 300;
   line-height: 0.78;
   letter-spacing: 0.01em;
@@ -447,7 +450,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   }
   .hero__media::before { top: -1px; bottom: auto; left: 0; right: 0; width: auto; height: 14%; background: linear-gradient(180deg, var(--earth), rgba(123, 41, 21, 0)); }
   .hero__media::after { display: none; }
-  .hero__kicker { bottom: auto; top: calc(var(--pad) * 0.6 + 56px + var(--title-height, 22vw)); }
+  .hero__kicker { bottom: auto; top: calc(var(--pad) * 0.6 + 72px + var(--title-size) * 0.78); }
   .hero__hint { display: none; }
 
   .taste, .leaf, .product { grid-template-columns: minmax(0, 1fr); }
