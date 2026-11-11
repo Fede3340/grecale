@@ -41,13 +41,15 @@ function draw() {
   ctx.drawImage(frames[index], 0, 0, canvas.width, canvas.height);
 }
 
-async function loadFrames() {
+function loadFrames() {
   for (let i = 0; i < POUR_FRAMES; i++) {
     const img = new Image();
+    img.decoding = 'async';
     img.src = `assets/seq/pour/${String(i).padStart(3, '0')}.webp`;
-    await img.decode();
-    frames[i] = await createImageBitmap(img);
-    if (i <= current) draw();
+    img.decode().then(() => {
+      frames[i] = img;
+      if (Math.abs(i - current) < 3) { drawn = -1; draw(); }
+    }, () => {});
   }
 }
 
@@ -175,13 +177,18 @@ function initPreview() {
   });
 }
 
+const fontsReady = Promise.race([
+  Promise.all([document.fonts.load('300 1em Melodrama'), document.fonts.load('400 1em Switzer')]),
+  new Promise((resolve) => setTimeout(resolve, 2500)),
+]);
+
 updateTotal();
-fitTitle();
 sizeCanvas();
+loadFrames();
 window.addEventListener('resize', () => { fitTitle(); sizeCanvas(); });
-document.fonts.ready.then(() => {
+fontsReady.then(() => {
   fitTitle();
+  document.documentElement.classList.remove('fonts-pending');
   if (!reducedMotion) initMotion();
   ScrollTrigger.refresh();
 });
-loadFrames();

@@ -113,9 +113,24 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   height: 100%;
   aspect-ratio: 3 / 4;
   transform: translateX(-50%);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 22%, #000 78%, transparent);
 }
+
+/* fades the photo edges into the page colour without a mask on the canvas */
+.hero__media::before,
+.hero__media::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  bottom: 0;
+  width: 24%;
+  pointer-events: none;
+}
+.hero__media::before { left: -1px; background: linear-gradient(90deg, var(--earth), rgba(123, 41, 21, 0)); }
+.hero__media::after { right: -1px; background: linear-gradient(270deg, var(--earth), rgba(123, 41, 21, 0)); }
+
+.fonts-pending .hero__title,
+.fonts-pending .header__logo { visibility: hidden; }
 
 .hero__poster,
 .hero__canvas {
@@ -422,9 +437,9 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
     width: 100%;
     height: auto;
     transform: none;
-    -webkit-mask-image: linear-gradient(180deg, transparent, #000 12%);
-    mask-image: linear-gradient(180deg, transparent, #000 12%);
   }
+  .hero__media::before { top: -1px; bottom: auto; left: 0; right: 0; width: auto; height: 14%; background: linear-gradient(180deg, var(--earth), rgba(123, 41, 21, 0)); }
+  .hero__media::after { display: none; }
   .hero__kicker { bottom: auto; top: calc(var(--pad) * 0.6 + 56px + var(--title-height, 22vw)); }
   .hero__hint { display: none; }
 
