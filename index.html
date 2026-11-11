@@ -11,7 +11,7 @@
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/gambarino-400.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/gambetta-400.woff2" crossorigin>
   <link rel="preload" as="image" href="assets/img/pour-poster.webp">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=8">
   <script>
     Promise.race([document.fonts.load('1em Gambarino'), new Promise((resolve) => setTimeout(resolve, 1500))])
       .then(() => document.documentElement.classList.remove('fonts-pending'));
@@ -57,8 +57,8 @@
         <figure class="hero__figure">
           <svg class="wind" viewBox="0 0 400 400" aria-hidden="true"><path d="M20 260 L260 20 M80 340 L340 80 M150 390 L390 150"/></svg>
           <video class="lens js-pour" src="assets/video/pour.mp4" poster="assets/img/pour-poster.webp" muted playsinline preload="auto" aria-label="Un filo d’olio extravergine riempie una ciotola di ceramica mentre scorri."></video>
-          <figcaption class="hero__hint">Scorri</figcaption>
         </figure>
+        <p class="hero__hint">Scorri</p>
       </div>
     </section>
 
@@ -111,7 +111,7 @@
             <output class="js-qty" aria-live="polite">1</output>
             <button type="button" class="js-plus" aria-label="Aumenta">+</button>
           </div>
-          <button type="button" class="button button--wide js-add">Aggiungi al carrello, <span class="js-total">18</span> €</button>
+          <button type="button" class="button button--wide js-add">Aggiungi al carrello, <span><span class="js-total">18</span> €</span></button>
         </div>
         <p class="note">Conservalo al riparo da luce e calore: il vetro scuro e la latta lo proteggono dalla luce.</p>
       </div>
@@ -179,6 +179,6 @@
 
   <script src="js/vendor/gsap.min.js" defer></script>
   <script src="js/vendor/ScrollTrigger.min.js" defer></script>
-  <script src="js/main.js" defer></script>
+  <script src="js/main.js?v=8" defer></script>
 </body>
 </html>

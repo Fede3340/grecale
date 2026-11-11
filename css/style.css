@@ -51,7 +51,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .fonts-pending .hero__title,
 .fonts-pending .logo__word { visibility: hidden; }
 
-.kicker { font-size: var(--fs-small); font-weight: 600; color: var(--olive); }
+.kicker { font-size: 1rem; font-weight: 600; color: var(--olive); }
 .kicker--light { color: var(--brass); }
 .note { margin-top: 1.6em; font-size: var(--fs-small); max-width: 42ch; }
 
@@ -112,8 +112,8 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .footer a:hover { background-size: 100% 1px; }
 
 .logo { display: flex; align-items: center; gap: 12px; }
-.logo__mark { width: 30px; height: 30px; }
-.logo__word { margin-right: -0.3em; font-family: var(--display); font-size: 1.45rem; letter-spacing: 0.3em; line-height: 1; text-transform: uppercase; }
+.logo__mark { width: 34px; height: 34px; }
+.logo__word { margin-right: -0.3em; font-family: var(--display); font-size: 1.75rem; letter-spacing: 0.3em; line-height: 1; text-transform: uppercase; }
 
 .header__actions { justify-self: end; }
 .header__cart { padding: 9px 16px; border: 1px solid currentColor; border-radius: 999px; }
@@ -170,7 +170,31 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .hero__lead { max-width: 32ch; margin-bottom: 2em; font-size: 1.1em; }
 
 .hero__figure { position: relative; justify-self: center; width: min(40vw, 600px); }
-.hero__hint { margin-top: 18px; font-size: var(--fs-small); text-align: center; color: var(--olive); }
+.hero__hint {
+  position: absolute;
+  left: 50%;
+  bottom: clamp(16px, 3vh, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  font-weight: 600;
+  color: var(--aubergine);
+  transform: translateX(-50%);
+}
+.hero__hint::after {
+  content: '';
+  width: 1px;
+  height: 40px;
+  background: currentColor;
+  transform-origin: top;
+  animation: hint 2.4s var(--ease-out) infinite;
+}
+@keyframes hint {
+  0% { transform: scaleY(0); opacity: 1; }
+  60% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
 .wind {
   position: absolute;
   inset: -12%;
@@ -262,7 +286,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
 .qty { display: flex; align-items: center; border: 1px solid rgba(52, 32, 45, 0.35); border-radius: 999px; }
 .qty button { width: 46px; height: 58px; }
 .qty output { min-width: 2ch; text-align: center; font-variant-numeric: tabular-nums; }
-.button--wide { flex: 1 1 220px; }
+.button--wide { flex: 1 1 auto; white-space: nowrap; }
 
 /* recipes */
 
@@ -331,8 +355,8 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   .header__nav { display: none; }
   .header__burger { display: block; }
   .logo { justify-self: center; gap: 8px; }
-  .logo__word { font-size: 1.1rem; letter-spacing: 0.24em; margin-right: -0.24em; }
-  .logo__mark { width: 24px; height: 24px; }
+  .logo__word { font-size: clamp(1.05rem, 5.2vw, 1.3rem); letter-spacing: 0.24em; margin-right: -0.24em; }
+  .logo__mark { width: 28px; height: 28px; }
   .header__cart { padding: 7px 12px; }
 
   .hero { height: 200vh; }
@@ -340,7 +364,7 @@ button { background: none; border: 0; padding: 0; cursor: pointer; }
   .hero__figure { width: min(62vw, 400px); order: -1; margin: 0 auto 20px; }
   .hero__title { font-size: clamp(2.4rem, 10.5vw, 3.4rem); margin: 0.2em 0 0.3em; }
   .hero__lead { margin-bottom: 1.2em; }
-  .hero__hint { display: none; }
+  .hero__hint { position: static; justify-self: center; margin-top: 28px; transform: none; }
 
   .taste, .shop, .where { grid-template-columns: minmax(0, 1fr); row-gap: 32px; }
   .taste__figure { grid-column: 1; width: 80%; }
